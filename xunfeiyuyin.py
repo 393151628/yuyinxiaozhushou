@@ -133,33 +133,46 @@ def analysis_phone(cws_list, dp_list, ner_list, pos_list):
 def goto_tmail():
     return
 
-def main():
-    with open(FILE_PATH, 'rb') as f:
-        file_content = f.read()
+
+def main(file_content):
+    # with open(FILE_PATH, 'rb') as f:
+    #     file_content = f.read()
     words = video2text(file_content)
     if words:
         # words = '打电话给赵国庆'
         # words = '我想请问今天北京天气如何。'
-        words.split()
         data = {}
         for i in action_list:
             ret = words_analysis(words, i)
             data[i] = ret
         ret = analysis_main(data)
+        data = {
+            'code': 0,  # 0为成功  1为失败
+            'message': '',  # 展示信息
+            'action': '',  # tmail or  toon的 跳转 协议
+            'type': 1,  # 0为展示信息， 1为 tmail or toon的跳转
+        }
         if ret:
             print(ret)
+            data['type'] = 1
+            data['action'] = ret
+            return data
         else:
+            data['type'] = 0
             r = anwser(file_content)
             if r['code'] == '0':
                 for i in r['data']:
                     if i.get('intent', {}).get('answer', {}).get('text'):
                         ans = i['intent']['answer']['text']
                         print(ans)
+                        data['message'] = ans
                         break
                 else:
-                    print('我听不懂')
+                    data['message'] = '我听不懂'
             else:
-                print('我听不懂')
+                data['message'] = '我听不懂'
+            return data
+
 
 if __name__ == '__main__':
     main()
