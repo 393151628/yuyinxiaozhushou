@@ -38,10 +38,18 @@ class FileUploadHandler(RequestHandler):
     def post(self):
         ret = []
         file_metas = self.request.files.get('file', None)  # 提取表单中‘name’为‘file’的文件元数据
-
+        data = {
+            'code': 1,  # 1为成功  0 为失败
+            'message': '',# 展示信息
+            'action': '', # tmail or  toon的 跳转 协议
+            'type': 0, # 0为展示信息， 1为 tmail or toon的跳转
+        }
         if not file_metas:
-            self.write('上传失败！')
+            data['code'] = 0
+            data['message'] = '上传失败！'
+            self.write(json_encode(data))
             self.finish()
+
 
         for meta in file_metas:
             filename = meta['filename']
@@ -53,7 +61,8 @@ class FileUploadHandler(RequestHandler):
                 up.write(meta['body'])
                 # OR do other thing
             ret.append(upload_path)
-        self.write('上传成功！')
+        data['message'] = '上传成功！'
+        self.write(json_encode(data))
         self.finish()
 
 
