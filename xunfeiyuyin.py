@@ -88,7 +88,7 @@ def analysis_main(data):
     if analysis_excuse(cws_list, dp_list, ner_list, pos_list):
         return 'excute_order'
     if analysis_phone(cws_list, dp_list, ner_list, pos_list):
-        return 'phone_number'
+        return 'toon://siri/callPhone?params={"tel":"0591-88610313"}'
     return False
 
 def analysis_excuse(cws_list, dp_list, ner_list, pos_list):
