@@ -172,6 +172,8 @@ def main(file_content):
             else:
                 data['message'] = '我听不懂'
             return data
+    else:
+        return False
 
 
 if __name__ == '__main__':

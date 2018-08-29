@@ -60,6 +60,9 @@ class FileUploadHandler(RequestHandler):
                 # OR do other thing
             # ret.append(upload_path)
             data = main(meta['body'])
+        if not data:
+            data['code'] = 1
+            data['message'] = '语音格式无法解析'
         self.write(json_encode(data))
         self.finish()
 
