@@ -3,7 +3,7 @@ video2text_api_key = "08bc221f2045757db27fb5384d7f47d1"
 words_api_key = 'dd2e73409172636d565f5b8b710dcf22'
 action_list = ['cws', 'pos', 'ner', 'dp', 'sdp', 'srl']
 REDIRECT = ['通讯录', '邮箱', '短信']
-PHONENUMBER = ['电话', '手机', '号', '座机号']
+PHONENUMBER = ['电话', '手机', '号', '座机号', '号码']
 EXCUSEORDER = ['邮件', '电话', '短信', '打电话', '发短信']
 DP_DICT = {
     'ADV': ('状中结构', 'adverbial', '非常美丽 (非常 \\<-- 美丽)'),

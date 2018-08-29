@@ -86,9 +86,9 @@ def analysis_main(data):
         print(a, '-------->', b, '[', DP_DICT[_dp['relate']][0], ']', '==============>', c, '[', SDP_DICT[sdp['relate']], ']')
 
     if analysis_excuse(cws_list, dp_list, ner_list, pos_list):
-        return 'excute_order'
-    if analysis_phone(cws_list, dp_list, ner_list, pos_list):
         return 'toon://siri/callPhone?params={"tel":"0591-88610313"}'
+    if analysis_phone(cws_list, dp_list, ner_list, pos_list):
+        return 'phone_number'
     return False
 
 def analysis_excuse(cws_list, dp_list, ner_list, pos_list):
