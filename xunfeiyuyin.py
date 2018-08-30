@@ -168,9 +168,9 @@ def main(file_content):
                         data['message'] = ans
                         break
                 else:
-                    data['message'] = '我听不懂'
+                    data['message'] = '此接口暂未调通'
             else:
-                data['message'] = '我听不懂'
+                data['message'] = '此接口暂未调通'
             return data
     else:
         return False

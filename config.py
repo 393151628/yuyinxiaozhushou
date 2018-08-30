@@ -4,7 +4,8 @@ words_api_key = 'dd2e73409172636d565f5b8b710dcf22'
 action_list = ['cws', 'pos', 'ner', 'dp', 'sdp', 'srl']
 REDIRECT = ['通讯录', '邮箱', '短信']
 PHONENUMBER = ['电话', '手机', '号', '座机号', '号码']
-EXCUSEORDER = ['邮件', '电话', '短信', '打电话', '发短信']
+# EXCUSEORDER = ['邮件', '电话', '短信', '打电话', '发短信']
+EXCUSEORDER = ['电话', '打电话']
 DP_DICT = {
     'ADV': ('状中结构', 'adverbial', '非常美丽 (非常 \\<-- 美丽)'),
     'ATT': ('定中关系', 'attribute', '红苹果 (红 \\<-- 苹果)'),
